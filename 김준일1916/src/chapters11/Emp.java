@@ -393,6 +393,25 @@ public class Emp extends JFrame {
 		userInfo.add(userInfoPhone);
 		
 		JButton updateSubmitButton = new JButton("\uC218\uC815\uD558\uAE30");
+		updateSubmitButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String pwd = updatePwdText.getText();
+				String rePwd = updateRePwdText.getText();
+				String name = updateNameText.getText();
+				String phone = updatePhoneText.getText();
+				
+				if(pwd.length() == 0 && rePwd.length() == 0 
+						&& name.length() == 0 && phone.length() == 0) {
+					JOptionPane.showMessageDialog(null, "수정할 내용이 없습니다.", "수정오류", JOptionPane.INFORMATION_MESSAGE);
+				}else if(pwd.length() != 0 && rePwd.length() != 0) {
+					JOptionPane.showMessageDialog(null, "수정할 비밀번호가 일치하지 않습니다.", "수정오류", JOptionPane.ERROR_MESSAGE);
+				}else {
+					
+				}
+				
+			}
+		});
 		updateSubmitButton.setBounds(551, 350, 325, 38);
 		userInfo.add(updateSubmitButton);
 		
