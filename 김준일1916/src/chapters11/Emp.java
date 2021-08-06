@@ -41,6 +41,12 @@ public class Emp extends JFrame {
 	private JPasswordField updateRePwdText;
 	private JTextField updateNameText;
 	private JTextField updatePhoneText;
+	
+	//userInfoLabel
+	private JLabel userInfoId;
+	private JLabel userInfoName;
+	private JLabel userInfoPhone;
+	
 
 	/**
 	 * Launch the application.
@@ -170,6 +176,19 @@ public class Emp extends JFrame {
 		welcomMessage = new JLabel("New label");
 		welcomMessage.setBounds(12, 10, 284, 15);
 		homeView.add(welcomMessage);
+		
+		JButton userInfoButton = new JButton("\uB9C8\uC774\uD398\uC774\uC9C0");
+		userInfoButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				userInfoId.setText(loginUserBean.getUser_id());
+				userInfoName.setText(loginUserBean.getUser_name());
+				userInfoPhone.setText(loginUserBean.getUser_phone());
+				mainCard.show(mainPanel, "name_12736128941400");
+			}
+		});
+		userInfoButton.setBounds(803, 10, 130, 23);
+		homeView.add(userInfoButton);
 		
 		DefaultListModel<String> model = new DefaultListModel<String>();
 		model.add(0, "±Ë¡ÿ¿œ");
@@ -361,16 +380,16 @@ public class Emp extends JFrame {
 		userInfoPhoneLabel.setBounds(135, 213, 57, 15);
 		userInfo.add(userInfoPhoneLabel);
 		
-		JLabel userInfoId = new JLabel("New label");
+		userInfoId = new JLabel("New label");
 		userInfoId.setBounds(204, 124, 57, 15);
 		userInfo.add(userInfoId);
 		
-		JLabel userInfoName = new JLabel("New label");
+		userInfoName = new JLabel("New label");
 		userInfoName.setBounds(204, 168, 57, 15);
 		userInfo.add(userInfoName);
 		
-		JLabel userInfoPhone = new JLabel("New label");
-		userInfoPhone.setBounds(204, 213, 57, 15);
+		userInfoPhone = new JLabel("New label");
+		userInfoPhone.setBounds(204, 213, 131, 15);
 		userInfo.add(userInfoPhone);
 		
 		JButton updateSubmitButton = new JButton("\uC218\uC815\uD558\uAE30");
@@ -382,6 +401,12 @@ public class Emp extends JFrame {
 		userInfo.add(deleteSubmitButton);
 		
 		JButton userInfoHomeButton = new JButton("\uBA54\uC778\uD654\uBA74");
+		userInfoHomeButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				mainCard.show(mainPanel, "name_20618782754200");
+			}
+		});
 		userInfoHomeButton.setBounds(854, 440, 97, 23);
 		userInfo.add(userInfoHomeButton);
 	}
